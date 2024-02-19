@@ -27,9 +27,8 @@ function App() {
     setDatos(resultado);
   };
   useEffect(() => {
-    if (datos !== null) {
-      if (datos.cod !== 200) {
-      }
+    if (datos && datos.cod !== 200) {
+      // handle the case where datos.cod is not 200
     }
   }, [datos]);
   return (
@@ -45,7 +44,7 @@ function App() {
             key={"1"}
           />
           <div>
-            {datos.cod === 200 ? (
+            {datos && datos.cod === 200 ? (
               <Clima datos={datos} />
             ) : (
               <>
